@@ -1,4 +1,6 @@
 [build]
+  # البناء من جذر المستودع (يجب أن يحتوي على src/app)
+  base = "."
   command = "npm run build"
 
 [build.environment]
