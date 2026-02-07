@@ -19,7 +19,7 @@ export default function AdminDashboardLayout({
 
   useEffect(() => {
     if (!mounted) return;
-    const ok = sessionStorage.getItem("sutra_admin");
+    const ok = sessionStorage.getItem("stella_admin");
     if (!ok) router.replace("/admin");
   }, [mounted, router]);
 
@@ -44,7 +44,7 @@ export default function AdminDashboardLayout({
       <header className="bg-white border-b border-sutra-blush/50 sticky top-0 z-40">
         <div className="max-w-5xl mx-auto px-4 flex items-center justify-between h-14">
           <Link href="/admin/dashboard" className="font-display text-xl font-semibold text-sutra-charcoal">
-            SUTRA — الأدمن
+            Stella — الأدمن
           </Link>
           <nav className="flex gap-4">
             {nav.map(({ href, label }) => (
@@ -60,7 +60,7 @@ export default function AdminDashboardLayout({
           <button
             type="button"
             onClick={() => {
-              sessionStorage.removeItem("sutra_admin");
+              sessionStorage.removeItem("stella_admin");
               router.push("/admin");
             }}
             className="text-sm text-sutra-charcoal/70 hover:text-sutra-gold"

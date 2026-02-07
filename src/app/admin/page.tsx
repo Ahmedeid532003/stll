@@ -11,7 +11,7 @@ export default function AdminLoginPage() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (typeof window !== "undefined" && sessionStorage.getItem("sutra_admin")) {
+    if (typeof window !== "undefined" && sessionStorage.getItem("stella_admin")) {
       router.replace("/admin/dashboard");
     }
   }, [router]);
@@ -28,7 +28,7 @@ export default function AdminLoginPage() {
       .then((res) => res.json())
       .then((data) => {
         if (data.ok) {
-          sessionStorage.setItem("sutra_admin", "1");
+          sessionStorage.setItem("stella_admin", "1");
           router.push("/admin/dashboard");
         } else {
           setError(data.error || "كلمة المرور غير صحيحة");
@@ -42,7 +42,7 @@ export default function AdminLoginPage() {
     <div className="min-h-screen flex items-center justify-center px-4 bg-gradient-to-b from-sutra-blush/40 to-sutra-pearl">
       <div className="w-full max-w-sm bg-white rounded-2xl shadow-lg border border-sutra-blush/50 p-8">
         <h1 className="font-display text-2xl font-semibold text-sutra-charcoal text-center mb-2">
-          SUTRA
+          Stella
         </h1>
         <p className="text-sutra-charcoal/70 text-center text-sm mb-6">لوحة الأدمن</p>
         <form onSubmit={handleLogin} className="space-y-4">

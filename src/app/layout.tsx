@@ -3,8 +3,8 @@ import "./globals.css";
 import Providers from "@/components/Providers";
 
 export const metadata: Metadata = {
-  title: "SUTRA | ملابس حريمى أنيقة",
-  description: "SUTRA - تشكيلة مختارة من الملابس الحريمى الأنيقة",
+  title: "Stella | مستلزمات حريمى أنيقة",
+  description: "Stella - تشكيلة مختارة من المستلزمات الحريمى الأنيقة",
 };
 
 export default function RootLayout({

@@ -19,10 +19,10 @@ const PAYMENT_METHODS = [
     icon: "instapay",
   },
   {
-    id: "vodafone_cash",
-    name: "فودافون كاش",
+    id: "etisalat_cash",
+    name: "اتصالات كاش",
     desc: "المحفظة الإلكترونية",
-    icon: "vodafone",
+    icon: "etisalat",
   },
 ] as const;
 

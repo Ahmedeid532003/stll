@@ -3,7 +3,7 @@
     "id": "prod-1",
     "name": "Elegant Blouse",
     "nameAr": "بلوزة أنيقة",
-    "description": "Comfortable blouse for daily wear.",
+    "description": "بلوزة مريحة للارتداء اليومي.",
     "descriptionAr": "بلوزة مريحة للارتداء اليومي.",
     "price": 299,
     "originalPrice": 349,
@@ -34,6 +34,11 @@
         "quantity": 3
       },
       {
+        "size": "S",
+        "color": "بيج",
+        "quantity": 5
+      },
+      {
         "size": "M",
         "color": "أبيض",
         "quantity": 7
@@ -57,7 +62,7 @@
     "id": "prod-2",
     "name": "Summer Dress",
     "nameAr": "فستان صيفي",
-    "description": "Light dress for summer.",
+    "description": "فستان خفيف للصيف.",
     "descriptionAr": "فستان خفيف للصيف.",
     "price": 449,
     "originalPrice": 499,
@@ -133,6 +138,23 @@
     ],
     "sectionId": "sec-1",
     "createdAt": "2024-01-17T10:00:00.000Z",
-    "isActive": false
+    "isActive": true
+  },
+  {
+    "name": "fhgb",
+    "nameAr": "لتاى",
+    "description": "رنتاا",
+    "descriptionAr": "رنتاا",
+    "price": 0,
+    "originalPrice": 200,
+    "category": "فستان",
+    "categoryAr": "فستان",
+    "images": [],
+    "colors": [
+      "اسود"
+    ],
+    "isActive": true,
+    "id": "ef9cbb7b-47d6-4af4-86d2-032c061a7dcc",
+    "createdAt": "2026-02-07T03:02:29.514Z"
   }
 ]

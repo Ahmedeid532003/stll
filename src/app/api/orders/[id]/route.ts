@@ -10,14 +10,14 @@ export async function PATCH(
     const { id } = await params;
     const body = await req.json();
     const { paymentMethod, paymentProofUrl } = body;
-    if (!paymentMethod || !["instapay", "vodafone_cash"].includes(paymentMethod)) {
+    if (!paymentMethod || !["instapay", "etisalat_cash"].includes(paymentMethod)) {
       return NextResponse.json({ error: "طريقة الدفع غير صالحة" }, { status: 400 });
     }
     if (!paymentProofUrl?.trim()) {
       return NextResponse.json({ error: "رابط صورة إثبات الدفع مطلوب" }, { status: 400 });
     }
     const order = await updateOrder(id, {
-      paymentMethod: paymentMethod as "instapay" | "vodafone_cash",
+      paymentMethod: paymentMethod as "instapay" | "etisalat_cash",
       paymentProofUrl: paymentProofUrl.trim(),
       paymentStatus: "pending",
     });

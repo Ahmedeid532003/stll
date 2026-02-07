@@ -78,7 +78,7 @@ export default function AdminOrdersPage() {
                   </p>
                   {order.paymentMethod && (
                     <p className="text-xs text-sutra-charcoal/60 mt-0.5">
-                      الدفع: {order.paymentMethod === "instapay" ? "انستا باي" : "فودافون كاش"}
+                      الدفع: {order.paymentMethod === "instapay" ? "انستا باي" : "اتصالات كاش"}
                       {order.paymentStatus && (
                         <span className="mr-2"> — {PAYMENT_STATUS_LABELS[order.paymentStatus]}</span>
                       )}

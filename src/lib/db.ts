@@ -88,6 +88,20 @@ export async function deleteProduct(id: string): Promise<boolean> {
   return true;
 }
 
+/** حذف المنتج نهائياً من المنتجات والمخزون */
+export async function deleteProductPermanent(id: string): Promise<boolean> {
+  const products = await getProductsAdmin();
+  const index = products.findIndex((p) => p.id === id);
+  if (index === -1) return false;
+  products.splice(index, 1);
+  await writeJson(PRODUCTS_FILE, products);
+  const raw = await readJson<unknown>(STOCK_FILE, []);
+  const stockList = ensureArray<{ productId: string; quantity: number; updatedAt?: string }>(raw);
+  const filtered = stockList.filter((s) => s && s.productId !== id);
+  await writeJson(STOCK_FILE, filtered);
+  return true;
+}
+
 export async function getStock(): Promise<Record<string, number>> {
   const raw = await readJson<unknown>(STOCK_FILE, []);
   const stock = ensureArray<{ productId: string; quantity: number }>(raw);

@@ -28,7 +28,7 @@ export async function POST(req: NextRequest) {
     }
 
     return NextResponse.json({
-      error: "الدفع الإلكتروني قيد التفعيل. يمكنك الدفع عند الاستلام أو التواصل عبر واتساب للدفع (فودافون كاش / انستا باي).",
+      error: "الدفع الإلكتروني قيد التفعيل. يمكنك الدفع عند الاستلام أو التواصل عبر واتساب للدفع (اتصالات كاش / انستا باي).",
     });
   } catch (e) {
     return NextResponse.json(

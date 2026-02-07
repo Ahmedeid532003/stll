@@ -189,6 +189,22 @@ export default function AdminProductsPage() {
       });
   };
 
+  const handlePermanentDelete = (id: string, name: string) => {
+    if (!confirm(`حذف المنتج "${name}" نهائياً؟ لا يمكن التراجع.`)) return;
+    fetch(`/api/admin/products/${id}/permanent-delete`, { method: "POST" })
+      .then((r) => r.json())
+      .then((data) => {
+        if (data.error) {
+          setMessage({ type: "err", text: data.error });
+        } else {
+          setMessage({ type: "ok", text: "تم حذف المنتج نهائياً." });
+          setEditingProduct((p) => (p?.id === id ? null : p));
+          load();
+        }
+      })
+      .catch(() => setMessage({ type: "err", text: "حدث خطأ أثناء الحذف." }));
+  };
+
   const openEdit = (p: Product) => {
     setEditingProduct(p);
     const variantQtys: Record<string, string> = {};
@@ -772,7 +788,7 @@ export default function AdminProductsPage() {
                     unoptimized
                   />
                 ) : (
-                  <span className="absolute inset-0 flex items-center justify-center text-sutra-rose/50 text-xs">SUTRA</span>
+                  <span className="absolute inset-0 flex items-center justify-center text-sutra-rose/50 text-xs">Stella</span>
                 )}
               </div>
               <div className="flex-1 min-w-0">
@@ -816,11 +832,19 @@ export default function AdminProductsPage() {
                   <button
                     type="button"
                     onClick={() => handleDelete(p.id, p.nameAr || p.name)}
-                    className="px-3 py-1.5 text-sm text-red-600 border border-red-200 rounded-lg hover:bg-red-50"
+                    className="px-3 py-1.5 text-sm text-amber-600 border border-amber-200 rounded-lg hover:bg-amber-50"
                   >
                     إخفاء
                   </button>
                 )}
+                <button
+                  type="button"
+                  onClick={() => handlePermanentDelete(p.id, p.nameAr || p.name)}
+                  className="px-3 py-1.5 text-sm text-red-600 border border-red-200 rounded-lg hover:bg-red-50"
+                  title="حذف نهائي من قاعدة البيانات"
+                >
+                  حذف
+                </button>
               </div>
             </div>
           ))}

@@ -34,7 +34,7 @@ export default function ProductPageClient({ id }: ProductPageClientProps) {
   const [message, setMessage] = useState<{ type: "ok" | "err"; text: string } | null>(null);
   const [createdOrderId, setCreatedOrderId] = useState<string | null>(null);
   const [paymentStep, setPaymentStep] = useState<"delivery" | "payment" | "pending">("delivery");
-  const [paymentMethod, setPaymentMethod] = useState<"instapay" | "vodafone_cash" | null>(null);
+  const [paymentMethod, setPaymentMethod] = useState<"instapay" | "etisalat_cash" | null>(null);
   const [proofFile, setProofFile] = useState<File | null>(null);
   const [proofSubmitting, setProofSubmitting] = useState(false);
   const proofInputRef = React.useRef<HTMLInputElement>(null);
@@ -331,39 +331,37 @@ export default function ProductPageClient({ id }: ProductPageClientProps) {
               </div>
             ) : null}
 
-            {inStock && (
-              <div className="flex flex-wrap gap-3">
-                {canOrder && (
-                  <button
-                    type="button"
-                    onClick={() => {
-                      const cartItems = itemOptions.map((opt) => ({
-                        productId: product.id,
-                        productName: product.nameAr || product.name,
-                        price: product.price,
-                        quantity: 1,
-                        size: opt.size || undefined,
-                        color: opt.color || undefined,
-                        image: product.images?.[0],
-                      }));
-                      addToCart(cartItems);
-                      setMessage({ type: "ok", text: "تمت إضافة المنتج إلى السلة." });
-                    }}
-                    className="btn-secondary px-8 py-4 border border-sutra-blush rounded-sutra font-medium text-base hover:bg-sutra-soft"
-                  >
-                    أضف إلى السلة
-                  </button>
-                )}
+            <div className="flex flex-wrap gap-3">
+              {canOrder && (
                 <button
                   type="button"
-                  onClick={() => setShowOrderForm(true)}
-                  disabled={!canOrder}
-                  className="btn-primary w-full md:w-auto px-10 py-4 bg-sutra-charcoal text-sutra-cream rounded-sutra font-medium text-base disabled:opacity-50 disabled:cursor-not-allowed"
+                  onClick={() => {
+                    const cartItems = itemOptions.map((opt) => ({
+                      productId: product.id,
+                      productName: product.nameAr || product.name,
+                      price: product.price,
+                      quantity: 1,
+                      size: opt.size || undefined,
+                      color: opt.color || undefined,
+                      image: product.images?.[0],
+                    }));
+                    addToCart(cartItems);
+                    setMessage({ type: "ok", text: "تمت إضافة المنتج إلى السلة." });
+                  }}
+                  className="btn-secondary px-8 py-4 border border-sutra-blush rounded-sutra font-medium text-base hover:bg-sutra-soft"
                 >
-                  {canOrder ? "اطلب الآن" : (hasVariants ? "اختر مقاس ولون متوفر لكل قطعة" : "غير متوفر")}
+                  أضف إلى السلة
                 </button>
-              </div>
-            )}
+              )}
+              <button
+                type="button"
+                onClick={() => setShowOrderForm(true)}
+                disabled={!canOrder}
+                className="btn-primary w-full md:w-auto px-10 py-4 bg-sutra-charcoal text-sutra-cream rounded-sutra font-medium text-base disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {canOrder ? "اطلب الآن" : (hasVariants ? "اختر مقاس ولون متوفر لكل قطعة" : "غير متوفر")}
+              </button>
+            </div>
           </div>
         </div>
 
@@ -458,7 +456,7 @@ export default function ProductPageClient({ id }: ProductPageClientProps) {
                   <h3 className="font-display text-2xl font-semibold text-sutra-charcoal mb-4">
                     الدفع
                   </h3>
-                  <p className="text-sm text-sutra-charcoal/70 mb-4">اختر انستا باي أو فودافون كاش ثم ارفع إثبات الدفع.</p>
+                  <p className="text-sm text-sutra-charcoal/70 mb-4">اختر انستا باي أو اتصالات كاش ثم ارفع إثبات الدفع.</p>
                   <div className="space-y-3 mb-6">
                     <button
                       type="button"
@@ -466,15 +464,15 @@ export default function ProductPageClient({ id }: ProductPageClientProps) {
                       className={`w-full p-4 rounded-sutra border-2 text-right ${paymentMethod === "instapay" ? "border-sutra-gold bg-sutra-gold/10" : "border-sutra-blush bg-white"}`}
                     >
                       <span className="font-semibold text-sutra-charcoal">انستا باي</span>
-                      <p className="text-lg font-mono text-sutra-gold mt-1">01553888323</p>
+                      <p className="text-lg font-mono text-sutra-gold mt-1">01145285394</p>
                     </button>
                     <button
                       type="button"
-                      onClick={() => setPaymentMethod("vodafone_cash")}
-                      className={`w-full p-4 rounded-sutra border-2 text-right ${paymentMethod === "vodafone_cash" ? "border-sutra-gold bg-sutra-gold/10" : "border-sutra-blush bg-white"}`}
+                      onClick={() => setPaymentMethod("etisalat_cash")}
+                      className={`w-full p-4 rounded-sutra border-2 text-right ${paymentMethod === "etisalat_cash" ? "border-sutra-gold bg-sutra-gold/10" : "border-sutra-blush bg-white"}`}
                     >
-                      <span className="font-semibold text-sutra-charcoal">فودافون كاش</span>
-                      <p className="text-lg font-mono text-sutra-gold mt-1">01066526061</p>
+                      <span className="font-semibold text-sutra-charcoal">اتصالات كاش</span>
+                      <p className="text-lg font-mono text-sutra-gold mt-1">01145285394</p>
                     </button>
                   </div>
                   <div className="mb-4">

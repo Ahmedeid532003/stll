@@ -1,1 +1,20 @@
-[]
+[
+  {
+    "id": "0b618609-09f7-467a-8b1c-4a8c552ab9b7",
+    "items": [
+      {
+        "productId": "ef9cbb7b-47d6-4af4-86d2-032c061a7dcc",
+        "productName": "لتاى",
+        "quantity": 1,
+        "price": 0,
+        "color": "اسود"
+      }
+    ],
+    "customerName": "نلولا 7بعا",
+    "customerPhone": "865320",
+    "address": "غعاتى",
+    "total": 0,
+    "status": "pending",
+    "createdAt": "2026-02-07T03:03:02.642Z"
+  }
+]

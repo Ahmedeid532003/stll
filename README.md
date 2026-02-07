@@ -1,6 +1,6 @@
-# SUTRA — موقع ملابس حريمى
+# Stella — موقع مستلزمات حريمى
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/e007df0f-e7ea-4ff9-ba31-b91ebac0b83c/deploy-status)](https://app.netlify.com/projects/sutra0/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e007df0f-e7ea-4ff9-ba31-b91ebac0b83c/deploy-status)](https://app.netlify.com/projects/stella0/deploys)
 
 موقع لعرض منتجات الملابس الحريمى مع لوحة تحكم للأدمن وإدارة مخزون.
 
@@ -16,7 +16,7 @@ npm run dev
 ## لوحة الأدمن
 
 - الرابط: `/admin`
-- كلمة المرور الافتراضية: **sutra2024**
+- كلمة المرور الافتراضية: **yomna2003**
 
 من لوحة الأدمن يمكنك:
 - **المنتجات**: إضافة منتجات (اسم، وصف، سعر، صور، مقاسات، ألوان) وإخفاء منتج من العرض

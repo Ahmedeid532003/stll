@@ -76,12 +76,12 @@ export interface Order {
   total: number;
   status: "pending" | "confirmed" | "shipped" | "delivered";
   createdAt: string;
-  /** طريقة الدفع (انستاباي / فودافون كاش) */
-  paymentMethod?: "instapay" | "vodafone_cash";
+  /** طريقة الدفع (انستاباي / اتصالات كاش) */
+  paymentMethod?: "instapay" | "etisalat_cash";
   /** رابط صورة إثبات الدفع */
   paymentProofUrl?: string;
   /** حالة إثبات الدفع: جاري التأكيد | تم التأكيد | تم الرفض */
   paymentStatus?: PaymentStatus;
 }
 
-export const ADMIN_PASSWORD = "sutra2024";
+export const ADMIN_PASSWORD = "yomna2003";
