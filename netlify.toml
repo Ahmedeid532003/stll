@@ -6,8 +6,8 @@
   NPM_FLAGS = "--legacy-peer-deps"
   NODE_OPTIONS = "--max-old-space-size=4096"
   NEXT_TELEMETRY_DISABLED = "1"
-  # إزالة CI لتجنب فشل البناء بسبب التحقق الصارم
-  # CI = "true"
+  CI = "false"
+  NODE_ENV = "production"
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
