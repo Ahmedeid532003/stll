@@ -50,6 +50,10 @@ next-env.d.ts
 /.next/
 /out/
 
+# zip temp
+_zip_temp/
+sutra-project-full.zip
+
 # production
 /build
 
